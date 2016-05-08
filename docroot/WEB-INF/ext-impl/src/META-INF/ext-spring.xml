@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<beans default-destroy-method="destroy" default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+	<bean id="com.liferay.portlet.dynamicdatamapping.util.DDMXML"
+		class="com.liferay.portlet.dynamicdatamapping.util.DDMXMLImpl">
+		<property name="XMLSchema">
+			<bean class="com.liferay.portal.xml.XMLSchemaImpl">
+				<property name="schemaLanguage" value="http://www.w3.org/2001/XMLSchema" />
+				<property name="systemId"
+					value="http://www.liferay.com/dtd/liferay-ddm-structure_6_2_0-ext.xsd" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="com.liferay.portlet.dynamicdatamapping.util.DDMXSDUtil"
+		class="com.liferay.portlet.dynamicdatamapping.util.DDMXSDUtil">
+		<property name="DDMXSD">
+			<bean class="com.ext.portlet.dynamicdatamapping.util.CustomDDMXSDImpl" />
+		</property>
+	</bean>
+
+</beans>
